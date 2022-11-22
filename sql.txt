@@ -1,0 +1,11 @@
+create table Users
+(
+    id       int auto_increment comment 'main id'
+        primary key,
+    userName char(69)                            not null,
+    password char(69)                            null,
+    type     enum ('patient', 'doktor', 'admin') not null
+)
+    collate = utf8mb3_unicode_ci;
+
+ 
