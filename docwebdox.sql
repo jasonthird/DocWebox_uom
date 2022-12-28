@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL COMMENT 'main id',
-  `userName` char(69) COLLATE utf8_unicode_ci NOT NULL,
-  `password` char(69) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `type` enum('patient','doktor','admin') COLLATE utf8_unicode_ci NOT NULL
+  `userName` char(420) COLLATE utf8_unicode_ci NOT NULL,
+  `password` char(420) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` enum('patient','doctor','admin') COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -39,10 +39,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `userName`, `password`, `type`) VALUES
-(1, 'MasterDok', 'password', 'doktor'),
+(1, 'MasterDoc', 'password', 'doctor'),
 (2, 'Patient', 'password', 'patient'),
 (3, 'inPain', 'pain', 'patient'),
-(4, 'Herr', 'Doktor', 'doktor'),
+(4, 'Herr', 'Doktor', 'doctor'),
 (5, 'LemmonBoy', 'covid19', 'patient');
 
 --
