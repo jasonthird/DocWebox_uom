@@ -3,18 +3,16 @@ body{
     background-color: rgb(147, 143, 143);
 }
 
-.main
-{
-    height: 620px;
+
+
+/* body */
+div p{
+  text-align: center;
+  font-size: 4rem;
 }
 
-  /* body */
-  div p{
-    text-align: center;
-    font-size: 70px;
-  }
-
-  .btn-primary {
+.btn-primary {
+    margin: 1.5rem;
     background-color: #333;
     border-color:#333;
 }
@@ -26,7 +24,6 @@ body{
 
 li > a:hover {
     color: white;
-
 }
 
 
