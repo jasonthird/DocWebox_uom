@@ -1,9 +1,9 @@
 <?php
 
 $hostname = 'localhost';
-$username = 'your_username';
-$password = 'your_password';
-$database = 'your_database';
+$username = 'root';
+$password = ' ';
+$database = 'docwebox';
 
 $conn = mysqli_connect($hostname, $username, $password, $database);
 
