@@ -16,9 +16,10 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="user_profile_edit.php">Profile</a></li>
+                    <li><a class="dropdown-item" href="user_appointment.php">My appointments</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="login.php">Logout</a></li>
                 </ul>
                 </div>
             </div>
@@ -32,7 +33,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -42,7 +43,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -52,7 +53,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -62,7 +63,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -75,7 +76,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -85,7 +86,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -95,7 +96,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -105,7 +106,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -117,7 +118,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -127,7 +128,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -137,7 +138,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>
@@ -147,7 +148,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Doctor test</h5>
                     <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
                 </div>
                 </div>
             </div>

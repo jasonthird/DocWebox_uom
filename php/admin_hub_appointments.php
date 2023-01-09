@@ -17,44 +17,46 @@
             <div class="card w-50">
                 <div class="card-body">
                     <h5 class="card-title">Appointment1</h5>
-                    <h5>User1</br>
+                    <h5>Doctor1</br>
+                    Patient1</br>
                     12:00</br>
-                    10/05/2023</br>
-                    6958412358</h5>
-                    <a href="#" class="btn btn-primary">View Appointment</a>
+                    10/05/2023
+                    </h5>
+                    <a href="admin_appointment_edit.php" class="btn btn-primary">View Appointment</a>
                 </div>
             </div>
             <br>
             <div class="card w-50">
                 <div class="card-body">
                     <h5 class="card-title">Appointment2</h5>
-                    <h5>User2</br>
+                    <h5>Doctor2</br>
+                    Patient2</br>
                     15:00</br>
-                    11/5/2023</br>
-                    6954745231</h5>
-                    <a href="#" class="btn btn-primary">View Appointment</a>
+                    11/5/2023
+                    </h5>
+                    <a href="admin_appointment_edit.php" class="btn btn-primary">View Appointment</a>
                 </div>
             </div>
             <br>
             <div class="card w-50">
                 <div class="card-body">
                     <h5 class="card-title">Appointment3</h5>
-                    <h5>User3</br>
+                    <h5>Doctor3</br>
+                    Patient3</br>
                     11:00</br>
-                    18/01/2023</br>
-                    6945874125</h5>
-                    <a href="#" class="btn btn-primary">View Appointment</a>
+                    18/01/2023</h5>
+                    <a href="admin_appointment_edit.php" class="btn btn-primary">View Appointment</a>
                 </div>
             </div>
             <br>
             <div class="card w-50">
                 <div class="card-body">
                     <h5 class="card-title">Appointment4</h5>
-                    <h5>User4</br>
+                    <h5>Doctor4</br>
+                    Patient4</br>
                     18:00</br>
-                    23/01/2023</br>
-                    6958745874</h5>
-                    <a href="#" class="btn btn-primary">View Appointment</a>
+                    23/01/2023</h5>
+                    <a href="admin_appointment_edit.php" class="btn btn-primary">View Appointment</a>
                 </div>
             </div>
         </div>

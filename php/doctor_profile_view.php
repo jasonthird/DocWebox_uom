@@ -16,9 +16,10 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="user_profile_edit.php">Profile</a></li>
+                    <li><a class="dropdown-item" href="user_appointment.php">My appointments</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="login.php">Logout</a></li>
                 </ul>
                 </div>
             </div>
@@ -77,7 +78,7 @@
                             <button class="btn btn-primary" type="button">Submit Appointment</button>
                         </div>
                         </div>
-    <script src="../js/calendar.js"></script>
+        <script src="../js/calendar.js"></script>
 
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

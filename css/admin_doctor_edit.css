@@ -1,0 +1,27 @@
+body{
+    /* background-image: url("../img/docs.jpg"); */
+    background-color: rgb(147, 143, 143);
+}
+
+/* body */
+div p{
+  text-align: center;
+  font-size: 4rem;
+}
+
+.btn-primary {
+    margin: 1.5rem;
+    background-color: #333;
+    border-color:#333;
+}
+.btn-primary:hover{
+    background-color: #111;
+    border-color:#111;
+}
+
+
+li > a:hover {
+    color: white;
+}
+
+
