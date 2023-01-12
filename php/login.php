@@ -13,18 +13,59 @@
                 <div class="card border-0 shadow rounded-3 m-5">
                     <div class="card-body text-center p-3 m-1 ">
                         <h3 class="card-title">Login</h3>
-                        <form>
-                        <div class="form-floating m-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Username</label>
-                        </div>
-                        <div class="form-floating m-3">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <button class="btn btn-primary" type="button">Submit</button>
-                        </div>
+                        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                            <div class="form-floating m-3">
+                                <input type="text" name="username" class="form-control" id="floatingInput">
+                                <label for="floatingInput">Username</label>
+                            </div>
+                            <div class="form-floating m-3">
+                                <input type="password" name="password" class="form-control" id="floatingPassword">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+                            </div>
+                        </form>
+                        <?php
+                                #check method is post
+                                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                    include 'connect.php';
+                                    #get username and password
+                                    $username = $_POST['username'];
+                                    $password = $_POST['password'];
+                                    
+                                    #query to check if user exists
+                                    $query = "SELECT * FROM users WHERE userName = '$username' AND password = '$password'";
+                                    $result = mysqli_query($conn, $query);
+                                    #check if user exists
+                                    if (mysqli_num_rows($result) > 0) {
+                                        #create session
+                                        session_start();
+                                        $_SESSION['username'] = $username;
+                                        #get type from result
+                                        $row = mysqli_fetch_assoc($result);
+                                        $type = $row['type'];
+
+                                        #set session type
+                                        $_SESSION['type'] = $type;
+
+                                        #redirect to correct page
+                                        echo $type;
+                                        if ($type == 'admin') {
+                                            header("Location: admin_hub_appointments.php");
+                                        } elseif ($type == 'patient') {
+                                            header("Location: user_hub.php");
+                                        } elseif ($type == 'doctor'){
+                                            header("Location: doctor_hub.php");
+                                        }
+
+                                    } else {
+                                        #user does not exist
+                                        echo "User does not exist";
+                                        echo mysqli_error($conn);
+                                    }
+                                }
+                            ?>
                 </div>
                 </div>
         </div>

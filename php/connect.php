@@ -2,8 +2,8 @@
 
 $hostname = 'localhost';
 $username = 'root';
-$password = ' ';
-$database = 'docwebox';
+$password = '';
+$database = 'docwebdox';
 
 $conn = mysqli_connect($hostname, $username, $password, $database);
 
