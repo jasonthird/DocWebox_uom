@@ -8,6 +8,10 @@
     </head>
     <body>
         <header>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
+            </a>
             <div class="header" class="d-flex justify-content-end">
                 <h3 class="d-flex justify-content-end">
                 <div class="btn-group">
@@ -23,6 +27,8 @@
                 </ul>
                 </div>
             </div>
+        </nav>
+        <br>
         </header>
 
         <div>

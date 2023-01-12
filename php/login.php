@@ -12,6 +12,7 @@
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto ">
                 <div class="card border-0 shadow rounded-3 m-5">
                     <div class="card-body text-center p-3 m-1 ">
+                        <img src="../img/logo.png" class="img-fluid">
                         <h3 class="card-title">Login</h3>
                         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                             <div class="form-floating m-3">
