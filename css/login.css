@@ -1,3 +1,11 @@
+body{
+    background-color: rgb(134, 179, 182);
+    background-image: url("../img/doctor-netherlands-1920x1080.png");
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+} 
 #login{
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.6);
@@ -7,7 +15,6 @@
     -webkit-backdrop-filter: blur(5.4px);
     border: 2px solid rgb(250, 231, 231);
 }
-
 .textfield{
     background: rgba(234, 11, 11, 0);
     border-radius: 16px;
@@ -16,31 +23,20 @@
     -webkit-backdrop-filter: blur(0px);
     border: 1px solid rgb(26, 107, 228);
 }
-body{
-    background-color: rgb(134, 179, 182);
-    background-image: url("../img/doctor-netherlands-1920x1080.png");
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-} 
 
 div p{
   text-align: center;
   font-size: 4rem;
 }
-
 .btn-primary {
     margin: 1.5rem;
     background-color: rgb(26, 107, 228);
     border-color:rgb(26, 107, 228);
 }
-
 .btn-primary:hover{
     background-color: rgb(1, 70, 173);
     border-color:rgb(1, 70, 173);
 }
-
 /* li > a:hover {
     color: white;
 } */
