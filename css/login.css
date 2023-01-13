@@ -1,7 +1,17 @@
-body{
-    /* background-image: url("../img/docs.jpg"); */
-    background-color: rgb(147, 143, 143);
+*{
+    margin: 0;
+    padding: 0;
 }
+
+body{
+    background-image: url("../img/doctor-netherlands-1920x1080.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    /* background-attachment: fixed; */
+    /* background-image: rgb(147, 143, 143);*/
+} 
 
 
 
