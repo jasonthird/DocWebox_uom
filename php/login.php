@@ -24,9 +24,10 @@
                                     <label for="floatingPassword">Password</label>
                                 </div>
                                 <div class="d-grid gap-2 col-6 mx-auto">
-                                    <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+                                    <button class="btn btn-primary" type="submit" name="submit" data-toggle="modal" data-target="#exampleModalLong">Submit</button>
                                 </div>
                             </form>
+                            
                             <?php
                                     #check method is post
                                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -62,7 +63,7 @@
 
                                         } else {
                                             #user does not exist
-                                            echo "User does not exist";
+                                            echo "<script>alert('User does not exist!')</script>";
                                             echo mysqli_error($conn);
                                         }
                                     }
@@ -72,6 +73,7 @@
                 </div>
             </div>
         </div>
+
         <footer class="mt-auto bg-light text-center text-lg-start">
             <!-- Copyright -->
                  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

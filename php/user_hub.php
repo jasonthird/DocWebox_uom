@@ -31,136 +31,56 @@
         <br>
         </header>
 
-        <div>
-        <div class="row">
-            <div class="col-sm-3 ">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            </div>
-            <br>
-            <div class="row">
-            <div class="col-sm-3 ">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            </div>
-            <br>        <div class="row">
-            <div class="col-sm-3 ">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                <img src="../img/profile2.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Doctor test</h5>
-                    <p class="card-text"><h6>cardiology</h6><h6>Thessaloniki</h6></p>
-                    <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
-                </div>
-                </div>
-            </div>
-            </div>
-            <br>
-        </div>
+        <?php
+        #check method is post
+        
+            include 'connect.php';
+            
+            #query to check if user exists
+            $query = "SELECT * from users u, profile p where type='doctor' and user_id = u.id";
+            $result = mysqli_query($conn, $query);
+            #check if user exists
+            if (mysqli_num_rows($result) > 0) {
+                
+                echo '<div class="row">';
+                $counter=0;
+                while($row = $result->fetch_assoc()){ 
+                    $counter++;
+                    if($counter<5){
+                    echo '<div class="col-sm-3">
+                            <div class="blog-item">
+                              <div class="card">
+                              <img src="../img/profile2.jpg" class="card-img-top">
+                              <div class="card-body">
+                                <h5 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h5>
+                                <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
+                                <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
+                              </div>
+                              </div>
+                            </div>
+                          </div>';
+                    }else if($counter=5)
+                    {
+                        echo '</div><br><div class="row"><div class="col-sm-3">
+                        <div class="blog-item">
+                          <div class="card">
+                          <img src="../img/profile2.jpg" class="card-img-top">
+                          <div class="card-body">
+                            <h5 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h5>
+                            <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
+                            <a href="doctor_profile_view.php" class="btn btn-primary">View Profile</a>
+                          </div>
+                          </div>
+                        </div>
+                      </div>';
+                        $counter=0;
+                    }
+                }
+                  mysqli_close($conn);
+            }
+    
+        ?>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
