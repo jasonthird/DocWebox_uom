@@ -47,10 +47,12 @@
                                             #get type from result
                                             $row = mysqli_fetch_assoc($result);
                                             $type = $row['type'];
-
+                                            $id = $row['id'];
+                                            
                                             #set session type
                                             $_SESSION['type'] = $type;
-
+                                            $_SESSION['id'] = $id;
+                                            
                                             #redirect to correct page
                                             echo $type;
                                             if ($type == 'admin') {
