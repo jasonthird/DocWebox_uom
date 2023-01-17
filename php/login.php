@@ -43,15 +43,18 @@
                                         if (mysqli_num_rows($result) > 0) {
                                             #create session
                                             session_start();
-                                            $_SESSION['username'] = $username;
+                                            unset($_SESSION["username"]);
+                                            unset($_SESSION["id"]);
+
+                                            $_SESSION["username"] = $username;
                                             #get type from result
                                             $row = mysqli_fetch_assoc($result);
-                                            $type = $row['type'];
-                                            $id = $row['id'];
+                                            $type = $row["type"];
+                                            $id = $row["id"];
                                             
                                             #set session type
                                             $_SESSION['type'] = $type;
-                                            $_SESSION['id'] = $id;
+                                            $_SESSION["id"] = $id;
                                             
                                             #redirect to correct page
                                             echo $type;

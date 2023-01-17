@@ -7,21 +7,38 @@
 
     </head>
     <body>
-        <header>
-            <div class="header" class="d-flex justify-content-end">
-                <h3 class="d-flex justify-content-end">
-                <div class="btn-group">
-                <button type="button" class="btn btn-info">Hello, Username</button>
-                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="doctor_profile_edit.php">Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="login.php">Logout</a></li>
-                </ul>
-                </div>
-            </div>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
+            </a>
+            <?php
+       session_start();
+        include 'connect.php';
+    
+
+                echo '<div class="header" class="d-flex justify-content-end">
+                        <h3 class="d-flex justify-content-end">
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-info">Hello,' . $_SESSION["username"] .' </button>
+                        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="user_profile_edit.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="user_appointment.php">My appointments</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="login.php">Logout</a></li>
+                        </ul>
+                        </div>
+                    </div>';
+        
+            
+              mysqli_close($conn);
+    
+           ?> 
+        </nav>
+        <br>
         </header>
 
         

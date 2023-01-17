@@ -13,21 +13,15 @@
                 <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
             </a>
             <?php
-       
-        include 'connect.php';
+              session_start();
+              include 'connect.php';
     
-        $query = "SELECT * from users where id = 4";
-        $result = mysqli_query($conn, $query);
-        
-        if (mysqli_num_rows($result) > 0) {
-            
-            
-            while($row = $result->fetch_assoc()){ 
+    
 
                 echo '<div class="header" class="d-flex justify-content-end">
                         <h3 class="d-flex justify-content-end">
                         <div class="btn-group">
-                        <button type="button" class="btn btn-info">Hello,Username </button>
+                        <button type="button" class="btn btn-info">Hello,' . $_SESSION["username"] .' </button>
                         <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
@@ -39,11 +33,10 @@
                         </ul>
                         </div>
                     </div>';
-        
-            }
+  
               mysqli_close($conn);
-        }
-           ?> 
+        
+            ?> 
         </nav>
         <br>
         </header>
