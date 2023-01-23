@@ -57,7 +57,7 @@ if($_SESSION["type"] != 'patient'){
         include 'connect.php';
     
         $id = $_SESSION["id"];
-        $query = "SELECT * FROM appointments a join profile p where a.doc_id=p.id and patient_id = $id ";
+        $query = "SELECT * FROM appointments a join profile p where doc_id=p.user_id and patient_id = $id ";
         $result = mysqli_query($conn, $query);
         #check if user exists
         if (mysqli_num_rows($result) > 0) {
