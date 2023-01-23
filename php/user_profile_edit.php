@@ -4,7 +4,7 @@ if(!isset($_SESSION["username"])){
     header("Location: login.php");
     exit();
 }
-if($_SESSION["type"] != 'patient'){
+if($_SESSION["type"] == 'patient'){
     header("Location: login.php");
     exit();
 }
