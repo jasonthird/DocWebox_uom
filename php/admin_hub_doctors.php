@@ -1,4 +1,13 @@
-
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])){
+        header("Location: login.php");
+    }
+    if($_SESSION["type"] != 'admin'){
+        header("Location: login.php");
+    }
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -13,7 +22,7 @@
                     <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
                 </a>
                 <?php
-                session_start();
+                // session_start();
                 include 'connect.php';
         
         
@@ -27,7 +36,7 @@
                             </button>
                             <ul class="dropdown-menu">
                                 
-                                <li><a class="dropdown-item" href="login.php">Logout</a></li>
+                                <li><a class="dropdown-item" href="nukeSession.php">Logout</a></li>
                             </ul>
                             </div>
                         </div>';

@@ -1,4 +1,14 @@
-
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])){
+        header("Location: login.php");
+        exit();
+    }
+    if($_SESSION["type"] != 'admin'){
+        header("Location: login.php");
+        exit();
+    }
+?>
 <html>
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"

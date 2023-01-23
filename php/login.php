@@ -1,4 +1,20 @@
-
+<?php
+    session_start();
+    #check if session exists
+    if (isset($_SESSION['username'])) {
+        switch ($_SESSION['type']) {
+            case 'doctor':
+                header("Location: doctor_hub.php");
+                break;
+            case 'user':
+                header("Location: user_hub.php");
+                break;
+            case 'admin':
+                header("Location: admin_hub_appointments.php");
+                break;
+        }
+    }
+    ?>
 <html>
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -6,6 +22,7 @@
         <link rel="stylesheet" href="../css/login.css">
 
     </head>
+
     <body class="d-flex flex-column min-vh-100">
         <div class="container-float">
             <div class="row">
@@ -42,7 +59,7 @@
                                         #check if user exists
                                         if (mysqli_num_rows($result) > 0) {
                                             #create session
-                                            session_start();
+                                            // session_start();
                                             unset($_SESSION["username"]);
                                             unset($_SESSION["id"]);
 

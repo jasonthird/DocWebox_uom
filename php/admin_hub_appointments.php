@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])){
+        header("Location: login.php");
+        exit();
+    }
+    if($_SESSION["type"] != 'admin'){
+        header("Location: login.php");
+        exit();
+    }
+?>
 
 <html>
     <head>
@@ -13,7 +24,6 @@
                     <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
                 </a>
                 <?php
-                session_start();
                 include 'connect.php';
         
         
@@ -26,8 +36,8 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
-                                
-                                <li><a class="dropdown-item" href="login.php">Logout</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="nukeSession.php">Logout</a></li>
                             </ul>
                             </div>
                         </div>';
