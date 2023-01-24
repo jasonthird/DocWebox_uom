@@ -31,8 +31,8 @@
                     echo '<div class="header" class="d-flex justify-content-end">
                             <h3 class="d-flex justify-content-end">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-info">Hello,' . $_SESSION["username"] .' </button>
-                            <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button type="button" class="btn btn-primary">Hello,' . $_SESSION["username"] .' </button>
+                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
