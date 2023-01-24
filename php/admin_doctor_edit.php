@@ -55,8 +55,10 @@ if($_SESSION["type"] != 'admin'){
         
         include 'connect.php';
         
-        $id=$_SESSION["id"];
-        $query = "SELECT * FROM users u, profile where u.id=$id and u.id=user_id ";
+        if(isset($_GET['doc'])){
+            $doc = $_GET['doc'];
+        
+        $query = "SELECT * FROM users u, profile where u.id=$doc and $doc=user_id ";
         $result = mysqli_query($conn, $query);
         #check if user exists
         if (mysqli_num_rows($result) > 0) {
@@ -108,6 +110,7 @@ if($_SESSION["type"] != 'admin'){
             }
               mysqli_close($conn);
         }
+    }
     ?>
 
         

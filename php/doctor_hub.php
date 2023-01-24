@@ -6,6 +6,8 @@
     if($_SESSION["type"] != 'doctor'){
         header("Location: login.php");
     }
+
+
 ?>
 
 <html>
@@ -22,9 +24,15 @@
                 <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
             </a>
             <?php
+                
     //    session_start();
         include 'connect.php';
-    
+        if(isset($_GET['app']))
+                {
+                    $app=$_GET['app'];
+                    $delete= mysqli_query($conn, "DELETE from appointments WHERE id = $app");
+                    
+                }
 
                 echo '<div class="header" class="d-flex justify-content-end">
                         <h3 class="d-flex justify-content-end">
@@ -69,8 +77,8 @@
                             ' . $row['date'] . '</br>
                             ' . $row['time'] . '
                             </h5>
-                            <a href="admin_appointment_edit.php" class="btn btn-primary">Edit Appointment</a>
-                            <a href="admin_appointment_edit.php" class="btn btn-primary">Delete Appointment</a>
+                            <a href="doctor_appointment_edit.php" class="btn btn-primary">Edit Appointment</a>
+                            <a href="doctor_hub.php?app='.$row['id'].'" class="btn btn-primary">Delete Appointment</a>
 
                         </div>
                         </div>
@@ -81,6 +89,8 @@
         {
             echo'no appointments';
         }
+
+
     ?>
         
         

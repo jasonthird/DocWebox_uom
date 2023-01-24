@@ -50,6 +50,13 @@ if(!isset($_SESSION["username"])){
         <?php
         
             include 'connect.php';
+            if(isset($_GET['doc']))
+            {
+                $app=$_GET['doc'];
+                $delete= mysqli_query($conn, "DELETE from users WHERE id = $doc");
+                
+            }
+
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
         
@@ -77,11 +84,13 @@ if(!isset($_SESSION["username"])){
                                     <h6>'  .$row['bio'] .'</h6>
         
                                 </p>
-                                <a href="admin_doctor_edit.php">
-                                <button class="btn btn-primary" type="button">Edit Doctor</button>
-                                </a>
-                                <button class="btn btn-primary" type="button">Delete Doctor</button>';
- 
+                                <a href="admin_doctor_edit.php?doc='.$id.'" class="btn btn-primary">Edit</a>
+                                <a href="doctor_hub.php?doc='.$row['id'].'" class="btn btn-primary">Delete</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>';
                 }
                   mysqli_close($conn);
             }
