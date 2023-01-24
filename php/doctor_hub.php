@@ -29,13 +29,13 @@
                 echo '<div class="header" class="d-flex justify-content-end">
                         <h3 class="d-flex justify-content-end">
                         <div class="btn-group">
-                        <button type="button" class="btn btn-info">Hello,' . $_SESSION["username"] .' </button>
-                        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" class="btn btn-primary">Hello,' . $_SESSION["username"] .' </button>
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="user_profile_edit.php">Profile</a></li>
-                            <li><a class="dropdown-item" href="user_appointment.php">My appointments</a></li>
+                            <li><a class="dropdown-item" href="doctor_profile_edit.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="doctor_hub.php">My appointments</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="nukeSession.php">Logout</a></li>
                         </ul>
