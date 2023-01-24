@@ -66,21 +66,21 @@ if(!isset($_SESSION["username"])){
                     <div class="card border-0 shadow rounded-3 m-5">
                         <div class="card-body text-center p-3 m-1 ">
                             <h3 class="card-title">Edit Profile</h3>
-                            <form>
+                            <form method = "POST" action = "">
                             <div class="form-floating m-3">
-                                <input type="text" class="form-control" id="floatingInput">
+                                <input type="text" name="username" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['userName'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="email" class="form-control" id="floatingInput">
+                                <input type="email" name="email" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['email'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="text" class="form-control" id="floatingInput">
+                                <input type="text" name="PhoneNumber" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['PhoneNumber'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <select class="form-control">
+                                <select name="Address" class="form-control">
                                 <option selected>' . $row['Address'] . '</option>
                                     <option>Thessaloniki</option>
                                     <option>Athens</option>
@@ -90,13 +90,27 @@ if(!isset($_SESSION["username"])){
                                 </select>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-primary" type="button">Save Changes</button>
+                                <button class="btn btn-primary" name="submit" type="button">Save Changes</button>
                             </div>
                     </div>
                     </div>
             </div>';
             }
               mysqli_close($conn);
+        }
+
+        
+		if(isset($_POST['submit'])) {
+		$pname = $_POST['username'];
+        $email = $_POST['email'];
+        $phone = $_POST['PhoneNumber'];
+		$address = $_POST['Address'];
+
+
+	
+		$result = mysqli_query($link, "UPDATE profile SET email=$email  PhoneNumber=$phone  Address=$address WHERE user_id = $id") or
+				die("Query error: " . mysqli_error($link));
+		echo "Row updated!";
         }
     ?>
  
