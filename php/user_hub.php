@@ -36,6 +36,7 @@ if($_SESSION["type"] != 'patient'){
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Doctors</a></li>
                             <li><a class="dropdown-item" href="user_profile_edit.php">Profile</a></li>
                             <li><a class="dropdown-item" href="user_appointment.php">My appointments</a></li>
                             <li><hr class="dropdown-divider"></li>

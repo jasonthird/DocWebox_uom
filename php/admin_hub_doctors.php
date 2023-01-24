@@ -74,7 +74,7 @@
                               <div class="card-body">
                                 <h5 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h5>
                                 <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
-                                <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
+                                <a href="admin_doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
                               </div>
                               </div>
                             </div>
@@ -88,7 +88,7 @@
                           <div class="card-body">
                             <h5 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h5>
                             <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
-                            <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
+                            <a href="admin_doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
                           </div>
                           </div>
                         </div>

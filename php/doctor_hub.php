@@ -49,54 +49,41 @@
         </nav>
         <br>
         </header>
-
+        <?php
         
-        <div>
-            <div class="card w-50">
-                <div class="card-body">
-                    <h5 class="card-title">Appointment1</h5>
-                    <h5>User1</br>
-                    12:00</br>
-                    10/05/2023</br>
-                    6958412358</h5>
-                    <a href="#" class="btn btn-primary">View Appointment</a>
-                </div>
-            </div>
-            <br>
-            <div class="card w-50">
-                <div class="card-body">
-                    <h5 class="card-title">Appointment2</h5>
-                    <h5>User2</br>
-                    15:00</br>
-                    11/5/2023</br>
-                    6954745231</h5>
-                    <a href="#" class="btn btn-primary">View Appointment</a>
-                </div>
-            </div>
-            <br>
-            <div class="card w-50">
-                <div class="card-body">
-                    <h5 class="card-title">Appointment3</h5>
-                    <h5>User3</br>
-                    11:00</br>
-                    18/01/2023</br>
-                    6945874125</h5>
-                    <a href="#" class="btn btn-primary">View Appointment</a>
-                </div>
-            </div>
-            <br>
-            <div class="card w-50">
-                <div class="card-body">
-                    <h5 class="card-title">Appointment4</h5>
-                    <h5>User4</br>
-                    18:00</br>
-                    23/01/2023</br>
-                    6958745874</h5>
-                    <a href="#" class="btn btn-primary">View Appointment</a>
-                </div>
-            </div>
-        </div>
-        <br>
+        include 'connect.php';
+        
+        $id=$_SESSION["id"];
+        $query = "SELECT u.userName, a.date, a.time, a.id FROM appointments a join users u where doc_id= $id and u.id=$id";
+        $result = mysqli_query($conn, $query);
+        #check if user exists
+        if (mysqli_num_rows($result) > 0) {
+            
+            while($row = $result->fetch_assoc()){ 
+                #keep the appointment once 
+                echo '<div class="card w-50">
+                        <div class="card-body">
+                            <h5 class="card-title">Appointment ' . $row['id'] . '</h5>
+                            <h5>
+                            ' . $row['userName'] . '</br> 
+                            ' . $row['date'] . '</br>
+                            ' . $row['time'] . '
+                            </h5>
+                            <a href="admin_appointment_edit.php" class="btn btn-primary">Edit Appointment</a>
+                            <a href="admin_appointment_edit.php" class="btn btn-primary">Delete Appointment</a>
+
+                        </div>
+                        </div>
+                        <br>';
+            }
+              mysqli_close($conn);
+        }else
+        {
+            echo'no appointments';
+        }
+    ?>
+        
+        
 
 
         </div>

@@ -32,6 +32,7 @@ if(!isset($_SESSION["username"])){
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="user_hub.php">Doctors</a></li>
                         <li><a class="dropdown-item" href="#">Profile</a></li>
                         <li><a class="dropdown-item" href="user_appointment.php">My appointments</a></li>
                         <li><hr class="dropdown-divider"></li>
