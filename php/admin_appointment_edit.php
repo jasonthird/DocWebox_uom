@@ -39,38 +39,56 @@
                     <div class="card border-0 shadow rounded-3 m-5">
                         <div class="card-body text-center p-3 m-1 ">
                             <h3 class="card-title">Edit Appointment</h3>
-                            <form>
+                            <form method="POST" action="">
                             <div class="form-floating m-3">
-                                <input type="text" class="form-control" id="floatingInput" >
+                                <input type="text" name="doctor" class="form-control" id="floatingInput" >
                                 <label for="floatingInput">' . $row['n1'] . $row['s1'] .'</label>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="text" class="form-control" id="floatingInput">
+                                <input type="text" name="patient" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['n2'] . $row['s2'] .'</label>
                             </div>
     
     
                             <div class="form-floating m-3">
-                                <input type="date" value="2023-07-22" class="form-control" id="floatingInput">
+                                <input type="date" name="date" value="' . $row['date'] .'" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['date'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="time" value="2023-07-22" class="form-control" id="floatingInput">
+                                <input type="time" name="time" value="' . $row['time'] .'" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['time'] . '</label>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-primary" type="button">Save Changes</button>
+                                <button class="btn btn-primary" name="save" type="submit">Save Changes</button>
                             </div>
+                            </form>
                     </div>
                     </div>
             </div>';
             }
               mysqli_close($conn);
         }
+
     }
+
+
     ?>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>
+<?php
+include 'connect.php';
+
+    if (isset($_POST['save'])) {
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        if(isset($_GET['id']))
+        {
+            $app=$_GET['id'];
+            mysqli_query($conn, "UPDATE appointments SET date='$date', time='$time' WHERE id=$app"); 
+            header('location: admin_hub_appointments.php');
+        }
+    }
+?>

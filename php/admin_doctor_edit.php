@@ -54,6 +54,21 @@ if($_SESSION["type"] != 'admin'){
         
         if(isset($_GET['doc'])){
             $doc = $_GET['doc'];
+
+            if (isset($_POST['save'])) {
+                $firstname = $_POST['firstname'];
+                $surename = $_POST['surename'];
+                $email = $_POST['email'];
+                $phone = $_POST['phone'];
+                $spesialization = $_POST['spesialization'];
+                $address = $_POST['address'];
+                $bio = $_POST['bio'];
+        
+    
+                    mysqli_query($conn, "UPDATE profile SET FirstName='$firstname', SureName='$surename', email=$email, PhoneNumber=$phone, Specialization=$spesialization, Address=$address, bio=$bio WHERE user_id=$doc"); 
+                    header('location: admin_hub_doctors.php');
+                }
+            
         
         $query = "SELECT * FROM users u, profile where u.id=$doc and $doc=user_id ";
         $result = mysqli_query($conn, $query);
@@ -70,23 +85,27 @@ if($_SESSION["type"] != 'admin'){
                             <h3 class="card-title">Edit Profile</h3>
                             <form>
                             <div class="form-floating m-3">
-                                <input type="text" class="form-control" id="floatingInput">
-                                <label for="floatingInput">' . $row['userName'] . '</label>
+                                <input type="text" name="firstname" class="form-control" id="floatingInput">
+                                <label for="floatingInput">' . $row['FirstName'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="email" class="form-control" id="floatingInput">
+                                <input type="text" name="surename" class="form-control" id="floatingInput">
+                                <label for="floatingInput">' . $row['SureName'] . '</label>
+                            </div>
+                            <div class="form-floating m-3">
+                                <input type="email" name="email" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['email'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="text" class="form-control" id="floatingInput">
+                                <input type="text" name="phone" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['PhoneNumber'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="text" class="form-control" id="floatingInput">
+                                <input type="text" name="spesialization" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['Specialization'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <select class="form-control" >
+                                <select name="address" class="form-control" >
                                     <option selected>' . $row['Address'] . '</option>
                                     <option>Thessaloniki</option>
                                     <option>Athens</option>
@@ -95,11 +114,11 @@ if($_SESSION["type"] != 'admin'){
                                 </select>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="textarea" class="form-control" id="floatingInput">
-                                <label for="floatingInput">bio</label>
+                                <input type="textarea" name="bio" class="form-control" id="floatingInput">
+                                <label for="floatingInput">' . $row['bio'] .'</label>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-primary" type="button">Save Changes</button>
+                                <button class="btn btn-primary" name="save" type="submit">Save Changes</button>
                             </div>
                     </div>
                     </div>
@@ -117,3 +136,25 @@ if($_SESSION["type"] != 'admin'){
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>
+
+<?php
+include 'connect.php';
+
+    if (isset($_POST['save'])) {
+        $firstname = $_POST['firstname'];
+        $surename = $_POST['surename'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $spesialization = $_POST['spesialization'];
+        $address = $_POST['address'];
+        $bio = $_POST['bio'];
+
+
+        if(isset($_GET['doc']))
+        {
+            $doc=$_GET['doc'];
+            mysqli_query($conn, "UPDATE profile SET FirstName='$firstname', SureName='$surename', email=$email, PhoneNumber=$phone, Specialization=$spesialization, Address=$address, bio=$bio WHERE user_id=$doc"); 
+            header('location: admin_hub_doctors.php');
+        }
+    }
+?>
