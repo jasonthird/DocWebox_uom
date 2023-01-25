@@ -12,12 +12,12 @@ body{
 }
 
 .doctor-profile-pic{
-    padding: 0.2rem;
-    border-radius: 1rem;
+    border-radius: 16px;
 }
 
+
 .navbar{
-    margin: 0.1rem;
+    margin-top: 0.1rem;
     border-radius: 0.5rem;
     background: rgba(190, 225, 228, 0.6);
     border: 1px solid rgba(39, 101, 214, 0.616);

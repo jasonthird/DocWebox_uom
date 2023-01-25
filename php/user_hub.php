@@ -17,9 +17,10 @@ if($_SESSION["type"] != 'patient'){
     </head>
     <body>
       <nav class="navbar navbar-fixed-top">
-        <a class="navbar-brand" href="#">
-            <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
-        </a>
+          <a class="navbar-brand" href="#">
+              <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
+          </a>
+      
         <?php
           // session_start();
           include 'connect.php';
@@ -38,50 +39,29 @@ if($_SESSION["type"] != 'patient'){
                         <li><a class="dropdown-item" href="nukeSession.php">Logout</a></li>
                     </ul>
                     </div>
-                </div>';
-          mysqli_close($conn);               
+                </div>';            
         ?> 
       </nav>
       <br>
       <?php
-          include 'connect.php';
           $query = "SELECT * from users u, profile p where type='doctor' and user_id = u.id";
           $result = mysqli_query($conn, $query);
           if (mysqli_num_rows($result) > 0) {
-              echo '<div class="row">';
-              $counter=0;
+              echo '<div class="row row-cols-sm-4 p-2 g-2">';
               while($row = $result->fetch_assoc()){ 
-                  $counter++;
-                  if($counter<5){
-                    echo '<div class="col-sm-3">
-                            <div class="blog-item">
-                              <div class="card">
-                              <img src="../img/profile2.jpg" class=" doctor-profile-pic card-img-top">
-                              <div class="card-body">
-                                <h4 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h4>
-                                <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
-                                <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
-                              </div>
-                              </div>
-                            </div>
-                          </div>';
-                  }else if($counter=5){
-                      echo '</div><br><div class="row"><div class="col-sm-3">
-                      <div class="blog-item">
+                echo '<div class="blog-item">
                         <div class="card">
-                        <img src="../img/profile2.jpg" class="doctor-profile-pic card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h5>
-                          <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
-                          <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
+                            <img src="../img/profile2.jpg" class="doctor-profile-pic card-img-top">
+                            <div class="card-body">
+                            <h4 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h4>
+                            <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
+                            <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
+                            </div>
                         </div>
-                        </div>
-                      </div>
-                    </div>';
-                      $counter=0;
-                  }
+                      </div>';
               }
-                mysqli_close($conn);
+              echo '</div>';
+              mysqli_close($conn);
             }
       ?>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
