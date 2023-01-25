@@ -36,7 +36,6 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="nukeSession.php">Logout</a></li>
                             </ul>
                             </div>
@@ -56,24 +55,29 @@
         <?php
         
             include 'connect.php';
-            
-            #query to check if user exists
-            $query = "SELECT u.userName, a.date, a.time, a.id FROM appointments a join users u where doc_id= u.id or patient_id= u.id";
-            $result = mysqli_query($conn, $query);
-            #check if user exists
-            if (mysqli_num_rows($result) > 0) {
+            // delete appointments
+            if(isset($_GET['id']))
+            {
+                $app=$_GET['id'];
+                $delete= mysqli_query($conn, "DELETE from appointments WHERE id = $app");
                 
+            }
+            $query = "SELECT p1.FirstName as n1, p1.SureName as s1, p2.FirstName as n2, p2.SureName as s2,time, date, a.id FROM (appointments a join profile p2 on p2.user_id=patient_id) join profile p1 on p1.user_id=doc_id";
+            $result = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($result) > 0) {
                 while($row = $result->fetch_assoc()){ 
                     #keep the appointment once 
                     echo '<div class="card w-50">
                             <div class="card-body">
-                                <h5 class="card-title">Appointment' . $row['id'] . '</h5>
-                                <h5>' . $row['userName'] . '</br>
-                                ' . $row['userName'] . '</br> 
-                                ' . $row['date'] . '</br>
-                                ' . $row['time'] . '
+                                <h5 class="card-title">Appointment ' . $row['id'] . '</h5>
+                                <h5> Doctor: ' . $row['n1'] . $row['s1'] .'</br>
+                                Patient: ' . $row['n2'] .  $row['s2'] . '</br> 
+                                Date: ' . $row['date'] . '</br>
+                                Time: ' . $row['time'] . '
                                 </h5>
-                                <a href="admin_appointment_edit.php" class="btn btn-primary">View Appointment</a>
+                                <a href="admin_appointment_edit.php?id='.$row['id'].'" class="btn btn-primary">Edit</a>
+                                <a href="admin_hub_appointments.php?id='.$row['id'].'" class="btn btn-primary">Delete</a>
                             </div>
                             </div>
                             <br>';

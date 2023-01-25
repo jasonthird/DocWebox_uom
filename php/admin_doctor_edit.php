@@ -35,9 +35,6 @@ if($_SESSION["type"] != 'admin'){
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="doctor_hub.php">My appointments</a></li>
-                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="nukeSession.php">Logout</a></li>
                          </ul>
                         </div>

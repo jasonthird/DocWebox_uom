@@ -35,7 +35,6 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
-                                
                                 <li><a class="dropdown-item" href="nukeSession.php">Logout</a></li>
                             </ul>
                             </div>
