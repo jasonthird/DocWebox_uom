@@ -43,6 +43,9 @@ if($_SESSION["type"] != 'patient'){
                       <li class="nav-item active">
                         <a href="user_appointment.php">My appointments</a>
                       </li>
+                      <li class="nav-item active">
+                        <a href="nukeSession.php">Logout</a>
+                      </li>
                     </ul>
                     <form class="d-flex">
                       <input type="text" name="searchbox" id="searchbox" class="filterinput form-control sticky-top" placeholder="search here">
