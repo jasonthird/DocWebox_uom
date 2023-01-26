@@ -19,9 +19,10 @@ if($_SESSION["type"] != 'patient'){
     </head>
     <body>
       <nav class="navbar navbar-fixed-top">
-        <a class="navbar-brand" href="#">
-            <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
-        </a>
+          <a class="navbar-brand" href="#">
+              <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
+          </a>
+      
         <?php
           // session_start();
           include 'connect.php';
@@ -40,14 +41,12 @@ if($_SESSION["type"] != 'patient'){
                         <li><a class="dropdown-item" href="nukeSession.php">Logout</a></li>
                     </ul>
                     </div>
-                </div>';
-          mysqli_close($conn);               
+                </div>';            
         ?> 
       </nav>
       <input type="text" name="searchbox" id="searchbox" class="filterinput form-control" placeholder="search here">
       <br>
       <?php
-          include 'connect.php';
           $query = "SELECT * from users u, profile p where type='doctor' and user_id = u.id";
           $result = mysqli_query($conn, $query);
           if (mysqli_num_rows($result) > 0) {
@@ -68,7 +67,8 @@ if($_SESSION["type"] != 'patient'){
                           </div>
                         </div>';
               }
-                mysqli_close($conn);
+              echo '</div>';
+              mysqli_close($conn);
             }
             echo '</div>';
 
