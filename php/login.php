@@ -6,7 +6,7 @@
             case 'doctor':
                 header("Location: doctor_hub.php");
                 break;
-            case 'user':
+            case 'patient':
                 header("Location: user_hub.php");
                 break;
             case 'admin':

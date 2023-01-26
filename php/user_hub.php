@@ -51,41 +51,27 @@ if($_SESSION["type"] != 'patient'){
           $query = "SELECT * from users u, profile p where type='doctor' and user_id = u.id";
           $result = mysqli_query($conn, $query);
           if (mysqli_num_rows($result) > 0) {
-              echo '<div class="row">';
+              echo '<div class="d-flex flex-wrap">';
               $counter=0;
               while($row = $result->fetch_assoc()){ 
                   $counter++;
-                  if($counter<5){
-                    echo '<div class="col-sm-3">
-                            <div class="blog-item">
-                              <div class="card">
-                              <img src="../img/profile2.jpg" class=" doctor-profile-pic card-img-top">
-                              <div class="card-body">
-                                <h4 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h4>
-                                <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
-                                <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
-                              </div>
-                              </div>
+                  echo '<div class="col-sm-3 doctors">
+                          <div class="blog-item m-1">
+                            <div class="card">
+                            <img src="../img/profile2.jpg" class=" doctor-profile-pic card-img-top">
+                            <div class="card-body">
+                              <h4 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h4>
+                              <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
+                              <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
                             </div>
-                          </div>';
-                  }else if($counter=5){
-                      echo '</div><br><div class="row"><div class="col-sm-3">
-                      <div class="blog-item">
-                        <div class="card">
-                        <img src="../img/profile2.jpg" class="doctor-profile-pic card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h5>
-                          <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
-                          <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
-                        </div>
-                        </div>
-                      </div>
-                    </div>';
-                      $counter=0;
-                  }
+                            </div>
+                          </div>
+                        </div>';
               }
                 mysqli_close($conn);
             }
+            echo '</div>';
+
       ?>
 
       <script>
@@ -93,7 +79,7 @@ if($_SESSION["type"] != 'patient'){
         $(document).ready(function() {
             $("#searchbox").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
-                $(".card").filter(function() {
+                $(".doctors").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
