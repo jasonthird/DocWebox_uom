@@ -18,57 +18,64 @@ if($_SESSION["type"] != 'patient'){
         <link rel="stylesheet" href="../css/user_hub.css">
     </head>
     <body>
-      <nav class="navbar navbar-fixed-top">
-          <a class="navbar-brand" href="#">
-              <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
-          </a>
-      
-        <?php
-          // session_start();
-          include 'connect.php';
-            echo '<div class="header d-flex justify-content-end">
-                    <h3 class="d-flex justify-content-end">
-                    <div class="btn-group">
-                    <button type="button" class="btn btn-info">Hello,' . $_SESSION["username"] .' </button>
-                    <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Doctors</a></li>
-                        <li><a class="dropdown-item" href="user_profile_edit.php">Profile</a></li>
-                        <li><a class="dropdown-item" href="user_appointment.php">My appointments</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="nukeSession.php">Logout</a></li>
-                    </ul>
-                    </div>
-                </div>';            
-        ?> 
-      </nav>
-      <input type="text" name="searchbox" id="searchbox" class="filterinput form-control sticky-top" placeholder="search here">
-      <br>
       <?php
-          $query = "SELECT * from users u, profile p where type='doctor' and user_id = u.id";
-          $result = mysqli_query($conn, $query);
-          if (mysqli_num_rows($result) > 0) {
-              echo '<div class="d-flex flex-wrap">';
-              while($row = $result->fetch_assoc()){ 
-                  echo '<div class="col-sm-3 doctors">
-                          <div class="blog-item m-1">
-                            <div class="card">
-                            <img src="../img/profile2.jpg" class=" doctor-profile-pic card-img-top">
-                            <div class="card-body">
-                              <h4 class="card-title">' . $row['FirstName'] . $row['SureName']  .'</h4>
-                              <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
-                              <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
+            // session_start();
+            include 'connect.php';
+              echo '<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">
+                      <img src="../img/logo.png" width="200" height="80" class="d-inline-block align-top" alt="">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a>Hello,' . $_SESSION["username"] .'</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a href="#">Doctors</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a href="user_profile_edit.php">Profile</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a href="user_appointment.php">My appointments</a>
+                      </li>
+                    </ul>
+                    <form class="d-flex">
+                      <input type="text" name="searchbox" id="searchbox" class="filterinput form-control sticky-top" placeholder="search here">
+                    </form>
+                  </div>
+                </div>';            
+          ?> 
+        </nav>
+        
+        <br>
+        <?php
+            $query = "SELECT * from users u, profile p where type='doctor' and user_id = u.id";
+            $result = mysqli_query($conn, $query);
+            if (mysqli_num_rows($result) > 0) {
+                echo '<div class="d-flex flex-wrap">';
+                while($row = $result->fetch_assoc()){ 
+                    echo '<div class="col-sm-3 doctors">
+                            <div class="blog-item m-1">
+                              <div class="card">
+                              <img src="../img/profile2.jpg" class=" doctor-profile-pic card-img-top">
+                              <div class="card-body">
+                              <h4 class="card-title">' . $row['FirstName']." ". $row['SureName']  .'</h4>
+                                <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
+                                <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
+                              </div>
+                              </div>
                             </div>
-                            </div>
-                          </div>
-                        </div>';
+                          </div>';
+                }
+                echo '</div>';
+                mysqli_close($conn);
               }
-              echo '</div>';
-              mysqli_close($conn);
-            }
-      ?>
+        ?>
 
       <script>
         //live search
