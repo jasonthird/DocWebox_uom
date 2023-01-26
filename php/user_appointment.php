@@ -54,9 +54,16 @@ if($_SESSION["type"] != 'patient'){
         <?php
         
         include 'connect.php';
+        
+        if(isset($_GET['id']))
+        {
+          $app=$_GET['id'];
+          $delete= mysqli_query($conn, "DELETE from appointments WHERE id = $app");
+                
+        }
     
         $id = $_SESSION["id"];
-        $query = "SELECT * FROM appointments a join profile p where doc_id=p.user_id and patient_id = $id ";
+        $query = "SELECT a.id as app_id, doc_id, FirstName, SureName, PhoneNumber, Address, date, time  FROM appointments a join profile p where doc_id=p.user_id and patient_id = $id ";
         $result = mysqli_query($conn, $query);
         #check if user exists
         if (mysqli_num_rows($result) > 0) {
@@ -80,8 +87,8 @@ if($_SESSION["type"] != 'patient'){
     
                             </p>
                             <div class="d-grid gap-2 col-3 mx-auto">
-                                <button class="btn btn-primary" type="button">Edit Appointment</button>
-                                <button class="btn btn-primary" type="button">Delete Appointment</button>
+                              <a href="user_appointment_edit.php?id='.$row['app_id'].'" class="btn btn-primary">Edit</a>
+                              <a href="user_appointment.php?id='.$row['app_id'].'" class="btn btn-primary">Delete</a>
                             </div>
                     </div>
                     </div>

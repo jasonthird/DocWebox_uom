@@ -48,7 +48,7 @@ if(!isset($_SESSION["username"])){
            
         </header>
         <?php
-        
+           
             include 'connect.php';
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
@@ -60,7 +60,7 @@ if(!isset($_SESSION["username"])){
                 
                
                 while($row = $result->fetch_assoc()){ 
-                    
+                   
                     echo '        
                     <div class="container-float">
                     <div class="row">
@@ -77,53 +77,35 @@ if(!isset($_SESSION["username"])){
                                     <h6>'  .$row['bio'] .'</h6>
         
                                 </p>
-                                <div class="light card-body">
-                                    <div class="calendar">
-                                        <div class="calendar-header">
-                                            <span class="month-picker" id="month-picker">April</span>
-                                            <div class="year-picker">
-                                                <span class="year-change" id="prev-year">
-                                                    <pre><</pre>
-                                                </span>
-                                                <span id="year">2022</span>
-                                                <span class="year-change" id="next-year">
-                                                    <pre>></pre>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="calendar-body">
-                                            <div class="calendar-week-day">
-                                                <div>Sun</div>
-                                                <div>Mon</div>
-                                                <div>Tue</div>
-                                                <div>Wed</div>
-                                                <div>Thu</div>
-                                                <div>Fri</div>
-                                                <div>Sat</div>
-                                            </div>
-                                            <div class="calendar-days"></div>
-                                        </div>
-                                    
-                                        <div class="month-list"></div>
-                                    </div>
-                                                </div>
-                                                </div>
-        
-        
-                                    <div class="d-grid gap-2 col-3 mx-auto">
-                                    <button class="btn btn-primary" type="button">Submit Appointment</button>
+                                <form method="POST" action="">
+                                <div class="form-floating m-3">
+                                <input type="date" name="date" value="" class="form-control" id="floatingInput">
+                                <label for="floatingInput">Date</label>
                                 </div>
-                                </div>';
+                                <div class="form-floating m-3">
+                                <input type="time" name="time" value="" class="form-control" id="floatingInput">
+                                <label for="floatingInput">Time</label>
+                                </div>
+                                <div class="d-grid gap-2 col-3 mx-auto">
+                                    <button class="btn btn-primary" name="submit" type="submit">Submit Appointment</button>
+                                </div>
+                                </form>';
  
                 }
-                  mysqli_close($conn);
+                  
+                  if (isset($_POST['submit'])) {
+                    $id = $_GET['id'];
+                    $insert_id =$_SESSION["id"];
+                    $date = $_POST['date'];
+                    $time = $_POST['time'];
+            
+                    mysqli_query($conn, "INSERT INTO appointments (doc_id, patient_id, date, time) VALUES ($id,$insert_id,$date,$time);"); 
+                    header('location: user_hub.php');
+                   mysqli_close($conn); 
+                }
             }
         }
-    
         ?>
-        
-        <script src="../js/calendar.js"></script>
-
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
