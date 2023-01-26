@@ -35,7 +35,7 @@ if($_SESSION["type"] != 'patient'){
                         <a>Hello,' . $_SESSION["username"] .'</a>
                       </li>
                       <li class="nav-item active">
-                        <a href="#">Doctors</a>
+                        <a href="user_hub.php">Doctors</a>
                       </li>
                       <li class="nav-item active">
                         <a href="user_profile_edit.php">Profile</a>
@@ -51,9 +51,10 @@ if($_SESSION["type"] != 'patient'){
                       <input type="text" name="searchbox" id="searchbox" class="filterinput form-control sticky-top" placeholder="search here">
                     </form>
                   </div>
-                </div>';            
-          ?> 
-        </nav>
+                </div>
+              </nav>';            
+        ?> 
+        
         
         <br>
         <?php
