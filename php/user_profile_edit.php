@@ -93,7 +93,15 @@ if(!isset($_SESSION["username"])){
                             </div>
                     </div>
                     </div>
-            </div>';
+            </div>
+            <footer class="mt-auto bg-light text-center text-lg-start fixed-bottom p-0">
+            <!-- Copyright -->
+                 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    © 2023 Copyright:
+                    <a class="text-dark" href="https://uom.gr/" target="_blank">UOM Project</a>
+                </div>
+            <!-- Copyright -->
+        </footer>';
             }
               mysqli_close($conn);
         }
@@ -112,7 +120,6 @@ if(!isset($_SESSION["username"])){
 		echo "Row updated!";
         }
     ?>
- 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
