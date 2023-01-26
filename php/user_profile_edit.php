@@ -56,7 +56,7 @@ if(!isset($_SESSION["username"])){
         $result = mysqli_query($conn, $query);
         #check if user exists
         if (mysqli_num_rows($result) > 0) {
-            
+
             while($row = $result->fetch_assoc()){ 
                 #keep the appointment once 
                 echo '<div class="container-float">
@@ -67,8 +67,12 @@ if(!isset($_SESSION["username"])){
                             <h3 class="card-title">Edit Profile</h3>
                             <form method = "POST" action = "">
                             <div class="form-floating m-3">
-                                <input type="text" name="username" class="form-control" id="floatingInput">
-                                <label for="floatingInput">' . $row['userName'] . '</label>
+                                <input type="text" name="firstName" class="form-control" id="floatingInput">
+                                <label for="floatingInput">' . $row['FirstName'] . '</label>
+                            </div>
+                            <div class="form-floating m-3">
+                                <input type="text" name="LastName" class="form-control" id="floatingInput">
+                                <label for="floatingInput">' . $row['SureName'] . '</label>
                             </div>
                             <div class="form-floating m-3">
                                 <input type="email" name="email" class="form-control" id="floatingInput">
@@ -89,7 +93,7 @@ if(!isset($_SESSION["username"])){
                                 </select>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-primary" name="submit" type="button">Save Changes</button>
+                                <button class="btn btn-primary" name="submit" type="submit">Save Changes</button>
                             </div>
                     </div>
                     </div>
@@ -103,21 +107,46 @@ if(!isset($_SESSION["username"])){
             <!-- Copyright -->
         </footer>';
             }
-              mysqli_close($conn);
         }
 
-        
-		if(isset($_POST['submit'])) {
-		$pname = $_POST['username'];
-        $email = $_POST['email'];
-        $phone = $_POST['PhoneNumber'];
-		$address = $_POST['Address'];
+        $query = "SELECT * FROM users u, profile where u.id=$id and u.id=user_id ";
+        $result = mysqli_query($conn, $query);
+        $row = $result->fetch_assoc();
+		if (isset($_POST['submit'])){
+            if (isset($_POST['firstName'])&& $_POST['firstName'] != ""){
+                $firstName = $_POST['firstName'];
+            }else{
+                $firstName = $row['FirstName'];
+            }
+            if (isset($_POST['LastName'])&& $_POST['LastName'] != ""){
+                $lastName = $_POST['LastName'];
+            }else{
+                $lastName = $row['SureName'];
+            }
+            if (isset($_POST['email'])&& $_POST['email'] != ""){
+                $email = $_POST['email'];
+            }else{
+                $email = $row['email'];
+            }
+            if (isset($_POST['PhoneNumber'])&& $_POST['PhoneNumber'] != ""){
+                $phone = $_POST['PhoneNumber'];
+            }else{
+                $phone = $row['PhoneNumber'];
+            }
+            if (isset($_POST['Address'])&& $_POST['Address'] != ""){
+                $address = $_POST['Address'];
+            }else{
+                $address = $row['Address'];
+            }
+            $query = "UPDATE profile SET FirstName='$firstName', SureName='$lastName', email='$email', PhoneNumber='$phone', Address='$address' WHERE user_id=$id";
+            $result = mysqli_query($conn, $query);
+            if($result){
+                echo '<script>alert("Profile updated successfully")</script>';
 
-
-	
-		$result = mysqli_query($link, "UPDATE profile SET email=$email  PhoneNumber=$phone  Address=$address WHERE user_id = $id") or
-				die("Query error: " . mysqli_error($link));
-		echo "Row updated!";
+                echo '<script>window.location.href = "user_profile_edit.php";</script>';
+            }else{
+                echo '<script>alert("Profile not updated")</script>';
+            }
         }
     ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
