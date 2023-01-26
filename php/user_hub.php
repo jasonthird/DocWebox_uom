@@ -44,7 +44,7 @@ if($_SESSION["type"] != 'patient'){
                 </div>';            
         ?> 
       </nav>
-      <input type="text" name="searchbox" id="searchbox" class="filterinput form-control" placeholder="search here">
+      <input type="text" name="searchbox" id="searchbox" class="filterinput form-control sticky-top" placeholder="search here">
       <br>
       <?php
           $query = "SELECT * from users u, profile p where type='doctor' and user_id = u.id";
