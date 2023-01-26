@@ -51,9 +51,7 @@ if($_SESSION["type"] != 'patient'){
           $result = mysqli_query($conn, $query);
           if (mysqli_num_rows($result) > 0) {
               echo '<div class="d-flex flex-wrap">';
-              $counter=0;
               while($row = $result->fetch_assoc()){ 
-                  $counter++;
                   echo '<div class="col-sm-3 doctors">
                           <div class="blog-item m-1">
                             <div class="card">
@@ -70,8 +68,6 @@ if($_SESSION["type"] != 'patient'){
               echo '</div>';
               mysqli_close($conn);
             }
-            echo '</div>';
-
       ?>
 
       <script>
