@@ -76,7 +76,7 @@ if($_SESSION["type"] != 'patient'){
                                 <h5>' . $row['Address'] . '</h5>
                                 <h5>' . $row['date']  .'</h5>
                                 <h5>' . $row['time']  .'</h5>
-                                <a href="doctor_profile_view.php?id=' . $row['doc_id'] . '">View Doctor Profile</a>
+                                <a id="doc_profile" href="doctor_profile_view.php?id=' . $row['doc_id'] . '">View Doctor Profile</a>
     
                             </p>
                             <div class="d-grid gap-2 col-3 mx-auto">
