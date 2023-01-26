@@ -62,7 +62,7 @@
         include 'connect.php';
         
         $id=$_SESSION["id"];
-        $query = "SELECT u.userName, a.date, a.time, a.id FROM appointments a join users u where doc_id= $id and u.id=$id";
+        $query = "SELECT p.FirstName, p.SureName, a.date, a.time, a.id FROM appointments a join profile p where doc_id= $id and patient_id=p.user_id";
         $result = mysqli_query($conn, $query);
         #check if user exists
         if (mysqli_num_rows($result) > 0) {
@@ -73,11 +73,11 @@
                         <div class="card-body">
                             <h5 class="card-title">Appointment ' . $row['id'] . '</h5>
                             <h5>
-                            ' . $row['userName'] . '</br> 
+                            ' . $row['FirstName'] . ' ' .   $row['SureName'] . '</br> 
                             ' . $row['date'] . '</br>
                             ' . $row['time'] . '
                             </h5>
-                            <a href="doctor_appointment_edit.php" class="btn btn-primary">Edit Appointment</a>
+                            <a href="doctor_appointment_edit.php?app='.$row['id'].'" class="btn btn-primary">Edit Appointment</a>
                             <a href="doctor_hub.php?app='.$row['id'].'" class="btn btn-primary">Delete Appointment</a>
 
                         </div>
