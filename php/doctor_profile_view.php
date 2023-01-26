@@ -98,9 +98,25 @@ if(!isset($_SESSION["username"])){
                     $insert_id =$_SESSION["id"];
                     $date = $_POST['date'];
                     $time = $_POST['time'];
-            
-                    mysqli_query($conn, "INSERT INTO appointments (doc_id, patient_id, date, time) VALUES ($id,$insert_id,$date,$time);"); 
-                    header('location: user_hub.php');
+                    #check if time and date is available
+                    $query = "SELECT * from appointments where doc_id =$id and date = '$date' and time = '$time' ";
+                    $result = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($result) >0) {
+                        echo '<div class="alert alert-danger" role="alert">
+                        This time is not available
+                      </div>';
+                    }
+                    #check if date is in the past
+                    elseif($date < date('Y-m-d')){
+                        echo '<div class="alert alert-danger" role="alert">
+                        This date is in the past
+                      </div>';
+                    }
+                    else{
+                        $query = "INSERT INTO appointments (patient_id, doc_id, date, time) VALUES ('$insert_id', '$id', '$date', '$time')";
+                        $result = mysqli_query($conn, $query);
+                        header('location: user_hub.php');
+                    }
                    mysqli_close($conn); 
                 }
             }
