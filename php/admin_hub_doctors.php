@@ -51,7 +51,7 @@
       </nav>';
       ?> 
       <br>
-      <?php          
+      <?php       
         #query to check if user exists
         $query = "SELECT * from users u, profile p where type='doctor' and user_id = u.id";
         $result = mysqli_query($conn, $query);
@@ -67,8 +67,8 @@
                         <h4 class="card-title">' . $row['FirstName']." ". $row['SureName']  .'</h4>
                           <h6 class="card-text">' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6>
                           <div class="text-center">
-                            <a href="admin_doctor_edit.php?id='.$row['id'].'" class="btn btn-primary">Edit</a>
-                            <a href="admin_hub_appointments.php?id='.$row['id'].'" class="btn btn-primary">Delete</a>
+                            <a href="admin_doctor_edit.php?id='.$row['user_id'].'" class="btn btn-primary">Edit Profile</a>
+                            <a href="admin_hub_doctors.php?id='.$row['user_id'].'" class="btn btn-primary">Delete</a>
                           </div>
                         </div>
                         </div>
@@ -76,8 +76,15 @@
                     </div>';
           }
           echo '</div>';
-          mysqli_close($conn);
+          
         }
+
+        if(isset($_GET['id']))
+        {
+          $app=$_GET['id'];
+          $delete= mysqli_query($conn, "DELETE from users WHERE id = $app");
+        } 
+        mysqli_close($conn);
       ?>
       <script>
         //live search

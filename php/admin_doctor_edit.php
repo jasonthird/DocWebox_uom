@@ -54,8 +54,8 @@ if($_SESSION["type"] != 'admin'){
         
         include 'connect.php';
         
-        if(isset($_GET['doc'])){
-            $doc = $_GET['doc'];
+        if(isset($_GET['id'])){
+            $doc = $_GET['id'];
 
             if (isset($_POST['save'])) {
                 $firstname = $_POST['firstname'];
