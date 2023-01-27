@@ -68,7 +68,7 @@
                           <h6 class="card-text">' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6>
                           <div class="text-center">
                             <a href="admin_doctor_edit.php?id='.$row['user_id'].'" class="btn btn-primary">Edit Profile</a>
-                            <a href="admin_hub_doctors.php?id='.$row['user_id'].'" class="btn btn-primary">Delete</a>
+                            <a href="admin_hub_doctors.php?id='.$row['user_id'].'"class="btn btn-primary">Delete</a>
                           </div>
                         </div>
                         </div>
@@ -81,8 +81,10 @@
 
         if(isset($_GET['id']))
         {
-          $app=$_GET['id'];
-          $delete= mysqli_query($conn, "DELETE from users WHERE id = $app");
+          $id=$_GET['id'];
+          $query = "DELETE FROM users WHERE id='$id'";
+          mysqli_query($conn,$query);
+
         } 
         mysqli_close($conn);
       ?>
