@@ -91,6 +91,13 @@ if($_SESSION["type"] != 'patient'){
                         </div>';
               }
             echo '</div>';
+          }else{
+            echo '<div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-5">
+                      <div id="no_appoint" class="text-center pt-4">
+                        <h2>No Appointments. Book an appointment with the best doctors NOW</h2>
+                        <a href="user_hub.php" class="btn btn-primary">Find Doctor</a>
+                      </div>
+                  </div>';
           }
         mysqli_close($conn);
     ?>
