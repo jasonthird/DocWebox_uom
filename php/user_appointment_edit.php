@@ -25,7 +25,7 @@
         {
             $app=$_GET['id'];
             
-        
+        }
         $query = "SELECT p1.FirstName as n1, p1.SureName as s1, p2.FirstName as n2, p2.SureName as s2,time, date, a.id FROM (appointments a join profile p2 on p2.user_id=patient_id) join profile p1 on p1.user_id=doc_id where a.id=$app";
         $result = mysqli_query($conn, $query);
 
@@ -66,9 +66,35 @@
                     </div>
             </div>';
             }
-              mysqli_close($conn);
+            
         }
-    }
+        if (isset($_POST['save'])) {
+            $id = $_GET['id'];
+            $date = $_POST['date'];
+            $time = $_POST['time'];
+            #check if time and date is available
+            $query = "SELECT * from appointments where id=$id and date='$date' and time='$time'";
+            $result = mysqli_query($conn, $query);
+            if (mysqli_num_rows($result) >0) {
+                echo '<div class="alert alert-danger" role="alert">
+                This time is not available
+            </div>';
+            }
+            #check if date is in the past
+            elseif($date < date('Y-m-d')){
+                echo '<div class="alert alert-danger" role="alert">
+                This date is in the past
+            </div>';
+            }
+            else{
+                $query = "UPDATE appointments SET date='$date', time='$time' WHERE id=$id";
+                $result = mysqli_query($conn, $query);
+                echo '<script>alert("Profile appointment successfully")</script>';
+                #wait for the alert to close
+                header("Refresh:0; url=user_appointment.php");
+            }
+        mysqli_close($conn); 
+        }
     ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

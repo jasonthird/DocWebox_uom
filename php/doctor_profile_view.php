@@ -104,7 +104,7 @@ if(!isset($_SESSION["username"])){
  
                 }
                   
-                  if (isset($_POST['submit'])) {
+                if (isset($_POST['submit'])) {
                     $id = $_GET['id'];
                     $insert_id =$_SESSION["id"];
                     $date = $_POST['date'];
