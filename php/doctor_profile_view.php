@@ -96,8 +96,9 @@ if(!isset($_SESSION["username"])){
                                 <input type="time" name="time" value="" class="form-control" id="floatingInput">
                                 <label for="floatingInput">Time</label>
                                 </div>
-                                <div class="d-grid gap-2 col-3 mx-auto">
-                                    <button class="btn btn-primary" name="submit" type="submit">Submit Appointment</button>
+                                <div class="text-center">
+                                  <button class="btn btn-primary" name="submit" type="submit">Submit Appointment</button>
+                                  <a href="user_hub.php" class="btn btn-primary">Go Back</a>
                                 </div>
                                 </form>';
  
