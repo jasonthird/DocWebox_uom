@@ -43,11 +43,11 @@
                         <a>Hello,' . $_SESSION["username"] .'</a>
                       </li>
                       <li class="nav-item active">
-                        <a href="doctor_profile_edit.php">Profile</a>
-                      </li>  
-                      <li class="nav-item active">
                         <a href="doctor_hub.php">My Appointments</a>
                       </li> 
+                      <li class="nav-item active">
+                        <a href="doctor_profile_edit.php">Profile</a>
+                      </li>  
                       <li class="nav-item active">
                         <a href="nukeSession.php">Logout</a>
                       </li> 
@@ -72,36 +72,26 @@
         $result = mysqli_query($conn, $query);
         #check if user exists
         if (mysqli_num_rows($result) > 0) {
-            
-            while($row = $result->fetch_assoc()){ 
-                #keep the appointment once 
-                echo '<div class="card w-50">
-                        <div class="card-body">
-                            <h5 class="card-title">Appointment ' . $row['id'] . '</h5>
-                            <h5>
-                            ' . $row['FirstName'] . ' ' .   $row['SureName'] . '</br> 
-                            ' . $row['date'] . '</br>
-                            ' . $row['time'] . '
-                            </h5>
-                            <a href="doctor_appointment_edit.php?app='.$row['id'].'" class="btn btn-primary">Edit Appointment</a>
-                            <a href="doctor_hub.php?app='.$row['id'].'" class="btn btn-primary">Delete Appointment</a>
-
+          #keep the appointment once 
+          echo '<div class="d-flex flex-wrap">';
+          while($row = $result->fetch_assoc()){ 
+              echo '<div class="col-sm-3 doctors">
+                      <div class="blog-item m-1">
+                        <div class="card">
+                          <div class="card-body">
+                          <h4 class="card-title">Appointment ' . $row['id'] . '</h4>
+                          <h6>' . $row['FirstName'] . ' ' .   $row['SureName'] . '</h6>
+                          <h6>' . $row['date'] . '</h6>
+                          <h6>' . $row['time']  .'</h6>
+                          </div>
                         </div>
-                        </div>
-                        <br>';
-            }
-              mysqli_close($conn);
-        }else
-        {
-            echo'no appointments';
+                      </div>
+                    </div>';
+          }
+          echo '</div>';
+          mysqli_close($conn);
         }
-
-
     ?>
-        
-        
-
-
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

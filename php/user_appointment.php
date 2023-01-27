@@ -13,7 +13,7 @@ if($_SESSION["type"] != 'patient'){
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="../css/_user_appointment.css">
+        <link rel="stylesheet" href="../css/patient_appointment.css">
 
     </head>
     <body>
@@ -91,29 +91,6 @@ if($_SESSION["type"] != 'patient'){
                           </div>';
                 }
                 echo '</div>';
-            //     echo '<div class="container-float">
-            //     <div class="row">
-            //         <div class="col-sm-9 col-md-8 col-lg-8 mx-auto ">
-            //         <div class="card border-0 shadow rounded-3 m-5">
-            //             <div class="card-body text-center p-3 m-1 ">
-            //                 <h3 class="card-title">Your Appointment</h3>
-            //                 <p>
-            //                     <img src="../img/profile.png">
-            //                     <h5>' . $row['FirstName']  . $row['SureName'] . '</h5>
-            //                     <h5>' . $row['PhoneNumber'] . '</h5>
-            //                     <h5>' . $row['Address'] . '</h5>
-            //                     <h5>' . $row['date']  .'</h5>
-            //                     <h5>' . $row['time']  .'</h5>
-            //                     <a id="doc_profile" href="doctor_profile_view.php?id=' . $row['doc_id'] . '">View Doctor Profile</a>
-    
-            //                 </p>
-            //                 <div class="d-grid gap-2 col-3 mx-auto">
-            //                   <a href="user_appointment_edit.php?id='.$row['app_id'].'" class="btn btn-primary">Edit</a>
-            //                   <a href="user_appointment.php?id='.$row['app_id'].'" class="btn btn-primary">Delete</a>
-            //                 </div>
-            //         </div>
-            //         </div>
-            // </div>';
             }
               mysqli_close($conn);
     ?>

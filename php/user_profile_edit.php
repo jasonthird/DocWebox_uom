@@ -33,10 +33,10 @@ if(!isset($_SESSION["username"])){
                             <a href="user_hub.php">Doctors</a>
                         </li>
                         <li class="nav-item active">
-                            <a href="user_profile_edit.php">Profile</a>
+                            <a href="user_appointment.php">My appointments</a>
                         </li>
                         <li class="nav-item active">
-                            <a href="user_appointment.php">My appointments</a>
+                            <a href="user_profile_edit.php">Profile</a>
                         </li>
                         <li class="nav-item active">
                             <a href="nukeSession.php">Logout</a>
@@ -97,15 +97,7 @@ if(!isset($_SESSION["username"])){
                             </div>
                     </div>
                     </div>
-            </div>
-            <footer class="mt-auto bg-light text-center text-lg-start fixed-bottom p-0">
-            <!-- Copyright -->
-                 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                    © 2023 Copyright:
-                    <a class="text-dark" href="https://uom.gr/" target="_blank">UOM Project</a>
-                </div>
-            <!-- Copyright -->
-        </footer>';
+            </div>';
             }
         }
 

@@ -37,10 +37,10 @@ if($_SESSION["type"] != 'doctor'){
                 <a>Hello,' . $_SESSION["username"] .'</a>
               </li>
               <li class="nav-item active">
-                <a href="doctor_profile_edit.php">Profile</a>
+                 <a href="doctor_hub.php">My Appointments</a>
               </li>  
               <li class="nav-item active">
-                 <a href="doctor_hub.php">My Appointments</a>
+                <a href="doctor_profile_edit.php">Profile</a>
               </li>  
               <li class="nav-item active">
                 <a href="nukeSession.php">Logout</a>

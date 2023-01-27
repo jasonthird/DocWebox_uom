@@ -18,7 +18,6 @@ if(!isset($_SESSION["username"])){
     </head>
     <body >
         <header>
-
         <?php
             //   session_start();
               include 'connect.php';

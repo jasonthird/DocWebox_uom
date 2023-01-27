@@ -52,10 +52,6 @@
                 ?> 
             <br>
         </header>
-        <nav class="nav nav-pills nav-justified">
-            <a class="nav-link active" aria-current="page" href="#">Appointments</a>
-            <a class="nav-link" href="admin_hub_doctors.php">Doctors</a>
-        </nav>
         <br>
         <?php
         
@@ -71,23 +67,31 @@
             $result = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($result) > 0) {
+              echo '<div class="d-flex flex-wrap">';
                 while($row = $result->fetch_assoc()){ 
                     #keep the appointment once 
-                    echo '<div class="card w-50">
-                            <div class="card-body">
-                                <h5 class="card-title">Appointment ' . $row['id'] . '</h5>
-                                <h5> Doctor: ' . $row['n1'] . $row['s1'] .'</br>
-                                Patient: ' . $row['n2'] .  $row['s2'] . '</br> 
-                                Date: ' . $row['date'] . '</br>
-                                Time: ' . $row['time'] . '
-                                </h5>
-                                <a href="admin_appointment_edit.php?id='.$row['id'].'" class="btn btn-primary">Edit</a>
-                                <a href="admin_hub_appointments.php?id='.$row['id'].'" class="btn btn-primary">Delete</a>
+                    echo '<div class="col-sm-3 col-lg-3 col-xl-2 doctors">
+                            <div class="blog-item m-1">
+                              <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Appointment ' . $row['id'] . '</h4>
+                                    <p class="card-text">
+                                      <h6> Doctor: ' . $row['n1'] . " " . $row['s1'] .'</h6>
+                                      <h6> Patient: ' . $row['n2'] . " " . $row['s2'] . '</h6> 
+                                      <h6> Date: ' . $row['date'] . '</h6>
+                                      <h6> Time: ' . $row['time'] . '</h6>
+                                    </p>
+                                    <div class="text-center">
+                                      <a href="admin_appointment_edit.php?id='.$row['id'].'" class="btn btn-primary">Edit</a>
+                                      <a href="admin_hub_appointments.php?id='.$row['id'].'" class="btn btn-primary">Delete</a>
+                                    </div>
+                                </div>
                             </div>
-                            </div>
-                            <br>';
+                          </div>
+                        </div>';
                 }
-                  mysqli_close($conn);
+                echo '</div>';
+                mysqli_close($conn);
             }
         ?>
         

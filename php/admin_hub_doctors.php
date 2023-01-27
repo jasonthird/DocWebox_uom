@@ -56,10 +56,6 @@
             </nav>
             <br>
         </header>
-        <nav class="nav nav-pills nav-justified">
-            <a class="nav-link" href="admin_hub_appointments.php">Appointments</a>
-            <a class="nav-link active" aria-current="page" href="#">Doctors</a>
-        </nav>
         <br>
         <?php
         
