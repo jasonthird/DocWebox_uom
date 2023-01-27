@@ -50,14 +50,6 @@ div p{
     border-color:rgb(34,87,191);
 }
 
-
-
-li > a:hover {
-    color: white;
-}
-
-
-
 .card {
     margin: 0 auto; 
     float: none; 

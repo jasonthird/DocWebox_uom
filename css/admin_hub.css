@@ -16,28 +16,8 @@ body{
     overflow-x: hidden;
 }
 
-
-
-.nav-link{
-    color: rgb(255, 255, 255);
-    background-color: rgba(34, 86, 191, 0.34) !important;
-}
-
-
-/* body */
-div p{
-  text-align: center;
-  font-size: 4rem;
-}
-
-.btn-primary {
-    
-    background-color: rgb(34,87,191);
-    border-color:rgb(34,87,191);
-}
-.btn-primary:hover{
-    background-color: rgb(22, 56, 124);
-    border-color:rgb(34,87,191);
+.doctor-profile-pic{
+    border-radius: 16px;
 }
 
 .navbar{
@@ -60,23 +40,21 @@ div p{
     border: 1px solid rgb(26, 107, 228);
 }
 
-.nav-item >a:hover{
-    color: #064e96;
+.card{
+    background: rgba(190, 225, 228, 0.6);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgb(26, 107, 228);
 }
 
-li > a:hover {
-    color: white;
+.btn-primary {
+    
+    background-color: rgb(34,87,191);
+    border-color:rgb(34,87,191);
 }
-
-.nav-link.active{
-    background-color:rgb(34,87,191) !important;
-}
-
-
-
-
-.card {
-    margin: 0 auto; 
-    float: none; 
-    margin-bottom: 10px; 
+.btn-primary:hover{
+    background-color: rgb(22, 56, 124);
+    border-color:rgb(34,87,191);
 }

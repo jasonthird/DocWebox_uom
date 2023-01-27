@@ -53,17 +53,9 @@ div p{
     border-color:rgb(34,87,191);
 }
 
-
-li > a:hover {
-    color: white;
-}
-
 .nav-link.active{
     background-color:rgb(34,87,191) !important;
 }
-
-
-
 
 .card {
     margin: 0 auto; 
