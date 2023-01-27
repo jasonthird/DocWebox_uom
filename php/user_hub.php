@@ -19,7 +19,6 @@ if($_SESSION["type"] != 'patient'){
     </head>
     <body>
       <?php
-            // session_start();
             include 'connect.php';
               echo '<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
                 <div class="container-fluid">
@@ -48,14 +47,12 @@ if($_SESSION["type"] != 'patient'){
                       </li>
                     </ul>
                     <form class="d-flex">
-                      <input type="text" name="searchbox" id="searchbox" class="filterinput form-control sticky-top" placeholder="search doctors">
+                      <input type="text" name="searchbox" id="searchbox" class="filterinput form-control" placeholder="search doctors">
                     </form>
                   </div>
                 </div>
               </nav>';            
         ?> 
-        
-        
         <br>
         <?php
             $query = "SELECT * from users u, profile p where type='doctor' and user_id = u.id";
@@ -69,7 +66,7 @@ if($_SESSION["type"] != 'patient'){
                               <img src="../img/profile2.jpg" class=" doctor-profile-pic card-img-top">
                               <div class="card-body">
                               <h4 class="card-title">' . $row['FirstName']." ". $row['SureName']  .'</h4>
-                                <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
+                                <h6 class="card-text">' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6>
                                 <div class="text-center"><a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a></div>
                               </div>
                               </div>
@@ -80,7 +77,6 @@ if($_SESSION["type"] != 'patient'){
                 mysqli_close($conn);
               }
         ?>
-
       <script>
         //live search
         $(document).ready(function() {
@@ -91,8 +87,7 @@ if($_SESSION["type"] != 'patient'){
                 });
             });
         });
-</script>
-
+      </script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>

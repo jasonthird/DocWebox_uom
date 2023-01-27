@@ -17,12 +17,8 @@ if($_SESSION["type"] != 'doctor'){
 
     </head>
     <body>
-    <header>
-            <?php
-    //    session_start();
+    <?php
         include 'connect.php';
-    
-
         echo '<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
@@ -49,24 +45,15 @@ if($_SESSION["type"] != 'doctor'){
             </div>
           </div>
         </nav>';
-        
-            
-              mysqli_close($conn);
-    
-           ?> 
-            
-        </header>
-        
-        <?php
-        
+        mysqli_close($conn);
+    ?> 
+    <?php
         include 'connect.php';
-        
         $id=$_SESSION["id"];
         $query = "SELECT * FROM users u, profile where u.id=$id and u.id=user_id ";
         $result = mysqli_query($conn, $query);
         #check if user exists
         if (mysqli_num_rows($result) > 0) {
-            
             while($row = $result->fetch_assoc()){ 
                 #keep the appointment once 
                 echo '<div class="container-float">
@@ -115,10 +102,6 @@ if($_SESSION["type"] != 'doctor'){
               mysqli_close($conn);
         }
     ?>
-
-        
-
-    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>

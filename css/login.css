@@ -23,10 +23,6 @@ body{
     border: 1px solid rgb(26, 107, 228);
 }
 
-div p{
-  text-align: center;
-  font-size: 4rem;
-}
 .btn-primary {
     margin: 1.5rem;
     background-color: rgb(26, 107, 228);
@@ -36,8 +32,3 @@ div p{
     background-color: rgb(1, 70, 173);
     border-color:rgb(1, 70, 173);
 }
-/* li > a:hover {
-    color: white;
-} */
-
-

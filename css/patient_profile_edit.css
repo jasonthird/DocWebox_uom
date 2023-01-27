@@ -1,4 +1,10 @@
+html{
+    height: 100vh;
+}
+
 body{
+    margin: 0;
+    min-height: 100%;
     background: rgba(214, 250, 250, 0.966);
     background-image: url("../img/Hospital_interior.jpg");
     background-blend-mode: multiply; 
@@ -13,7 +19,6 @@ body{
 .doctor-profile-pic{
     border-radius: 16px;
 }
-
 
 .navbar{
     margin-bottom: 0.1rem;
@@ -48,12 +53,6 @@ body{
     border: 1px solid rgb(26, 107, 228);
 }
 
-/* body */
-div p{
-  text-align: center;
-  font-size: 4rem;
-}
-
 .btn-primary {
     margin: 1.5rem;
     background-color: rgb(26, 107, 228);
@@ -62,16 +61,4 @@ div p{
 .btn-primary:hover{
     background-color: rgb(1, 70, 173);
     border-color:rgb(1, 70, 173);
-}
-
-li > a:hover {
-    color: white;
-}
-
-html{
-    height: 100vh;
-}
-body {
-    margin: 0;
-    min-height: 100%;
 }
