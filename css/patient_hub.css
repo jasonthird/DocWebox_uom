@@ -2,7 +2,6 @@ html{
     height: 100vh;
 }
 
-
 body{
     margin: 0;
     min-height: 100%;
@@ -49,12 +48,6 @@ body{
     backdrop-filter: blur(5.4px);
     -webkit-backdrop-filter: blur(5.4px);
     border: 1px solid rgb(26, 107, 228);
-}
-
-/* body */
-div p{
-  text-align: center;
-  font-size: 4rem;
 }
 
 .btn-primary {
