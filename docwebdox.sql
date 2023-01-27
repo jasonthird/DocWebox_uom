@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Εξυπηρετητής: 127.0.0.1
--- Χρόνος δημιουργίας: 27 Ιαν 2023 στις 19:17:12
+-- Χρόνος δημιουργίας: 27 Ιαν 2023 στις 19:21:29
 -- Έκδοση διακομιστή: 10.4.18-MariaDB
 -- Έκδοση PHP: 8.0.3
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Βάση δεδομένων: `docwebdox`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Δομή πίνακα για τον πίνακα `appointments`
+--
+
+CREATE TABLE `appointments` (
+  `id` int(11) NOT NULL,
+  `doc_id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Άδειασμα δεδομένων του πίνακα `appointments`
+--
+
+INSERT INTO `appointments` (`id`, `doc_id`, `patient_id`, `date`, `time`) VALUES
+(7, 7, 3, '2023-02-02', '14:00:00'),
+(8, 9, 5, '2023-02-12', '19:00:00'),
+(10, 4, 5, '2023-02-05', '08:59:00');
 
 -- --------------------------------------------------------
 
@@ -63,9 +86,54 @@ INSERT INTO `profile` (`id`, `user_id`, `FirstName`, `SureName`, `Address`, `Pho
 (18, 15, 'Antonis', 'Zerbas', 'Thessaloniki', '6944444444', 'zerbas@gmail.com', 'psychologist', 'Hellooo'),
 (19, 16, 'Lefteris', 'Eleutheriadis', 'Patras', '6977777777', 'lef@gmail.com', 'Vet', 'Give me all your cats');
 
+-- --------------------------------------------------------
+
+--
+-- Δομή πίνακα για τον πίνακα `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL COMMENT 'main id',
+  `userName` text COLLATE utf8_unicode_ci NOT NULL,
+  `password` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` enum('patient','doctor','admin') COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Άδειασμα δεδομένων του πίνακα `users`
+--
+
+INSERT INTO `users` (`id`, `userName`, `password`, `type`) VALUES
+(1, 'MasterDoc', 'password', 'doctor'),
+(2, 'Patient', 'password', 'patient'),
+(3, 'inPain', 'pain', 'patient'),
+(4, 'Herr', 'Doktor', 'doctor'),
+(5, 'LemmonBoy', 'covid19', 'patient'),
+(6, 'admin', 'god', 'admin'),
+(7, 'TestDoc1', 'pass', 'doctor'),
+(8, 'TestDoc2', 'pass', 'doctor'),
+(9, 'Jason', 'js', 'doctor'),
+(10, 'Mariapap', 'papad', 'patient'),
+(11, 'MrDoc1', 'pass', 'doctor'),
+(12, 'Koskonsantinidis', 'pass', 'doctor'),
+(13, 'papagianis', 'pass', 'doctor'),
+(14, 'papagewrgiou', 'pass', 'doctor'),
+(15, 'zerbas', 'password', 'doctor'),
+(16, 'eleutheriadis', 'pass', 'doctor'),
+(17, 'athanasiadis', 'pass', 'patient'),
+(18, 'dona', 'pass', 'patient');
+
 --
 -- Ευρετήρια για άχρηστους πίνακες
 --
+
+--
+-- Ευρετήρια για πίνακα `appointments`
+--
+ALTER TABLE `appointments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `appointments_patient__fk` (`patient_id`),
+  ADD KEY `appointments_doctor_fk` (`doc_id`);
 
 --
 -- Ευρετήρια για πίνακα `profile`
@@ -75,8 +143,21 @@ ALTER TABLE `profile`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Ευρετήρια για πίνακα `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
 -- AUTO_INCREMENT για άχρηστους πίνακες
 --
+
+--
+-- AUTO_INCREMENT για πίνακα `appointments`
+--
+ALTER TABLE `appointments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT για πίνακα `profile`
@@ -85,8 +166,21 @@ ALTER TABLE `profile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT για πίνακα `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'main id', AUTO_INCREMENT=19;
+
+--
 -- Περιορισμοί για άχρηστους πίνακες
 --
+
+--
+-- Περιορισμοί για πίνακα `appointments`
+--
+ALTER TABLE `appointments`
+  ADD CONSTRAINT `appointments_doctor_fk` FOREIGN KEY (`doc_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `appointments_patient__fk` FOREIGN KEY (`patient_id`) REFERENCES `users` (`id`);
 
 --
 -- Περιορισμοί για πίνακα `profile`
