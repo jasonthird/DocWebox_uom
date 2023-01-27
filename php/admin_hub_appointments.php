@@ -42,10 +42,10 @@
               <li class="nav-item active">
                 <a href="nukeSession.php">Logout</a>
               </li> 
-              </ul>
-              <form class="d-flex">
-                <input type="text" name="searchbox" id="searchbox" class="filterinput form-control" placeholder="search appointments">
-              </form>
+            </ul>
+            <form class="d-flex">
+              <input type="text" name="searchbox" id="searchbox" class="filterinput form-control" placeholder="search appointments">
+            </form>
             </div>
           </div>
         </nav>';

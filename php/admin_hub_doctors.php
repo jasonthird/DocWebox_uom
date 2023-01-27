@@ -66,7 +66,10 @@
                         <div class="card-body">
                         <h4 class="card-title">' . $row['FirstName']." ". $row['SureName']  .'</h4>
                           <h6 class="card-text">' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6>
-                          <div class="text-center"><a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a></div>
+                          <div class="text-center">
+                            <a href="admin_doctor_edit.php?id='.$row['id'].'" class="btn btn-primary">Edit</a>
+                            <a href="admin_hub_appointments.php?id='.$row['id'].'" class="btn btn-primary">Delete</a>
+                          </div>
                         </div>
                         </div>
                       </div>
