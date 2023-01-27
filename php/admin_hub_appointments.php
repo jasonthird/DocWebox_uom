@@ -89,6 +89,12 @@
             }
             echo '</div>';
             mysqli_close($conn);
+        }else{
+          echo '<div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-5">
+                    <div id="no_appoint" class="text-center py-4">
+                      <h1>No Appointments</h1>
+                    </div>
+                </div>';
         }
         ?>
         <script>
