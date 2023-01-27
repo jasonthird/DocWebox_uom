@@ -14,39 +14,41 @@ if($_SESSION["type"] != 'admin'){
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/doctor_profile_edit.css">
-
     </head>
     <body>
-    <header>
-    <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">
-                <img src="../img/logo.png" width="280" height="80" class="d-inline-block align-top" alt="">
-            </a>
-            <?php
+    <?php
     //    session_start();
         include 'connect.php';
-    
-
-                echo '<div class="header" class="d-flex justify-content-end">
-                        <h3 class="d-flex justify-content-end">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Hello,' . $_SESSION["username"] .' </button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="nukeSession.php">Logout</a></li>
-                         </ul>
-                        </div>
-                    </div>';
-        
+        echo '<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+              <img src="../img/logo.png" width="200" height="80" class="d-inline-block align-top" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a>Hello,' . $_SESSION["username"] .'</a>
+              </li>
+              <li class="nav-item active">
+                <a href="admin_hub_appointments.php">Appointments</a>
+              </li>  
+              <li class="nav-item active">
+                <a href="admin_hub_doctors.php">Doctors</a>
+              </li> 
+              <li class="nav-item active">
+                <a href="nukeSession.php">Logout</a>
+              </li> 
+              </ul>
+            </div>
+          </div>
+        </nav>';
             
               mysqli_close($conn);
     
            ?> 
-        </nav>
-            
-        </header>
         
         <?php
         

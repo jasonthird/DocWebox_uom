@@ -48,7 +48,7 @@ if($_SESSION["type"] != 'patient'){
                       </li>
                     </ul>
                     <form class="d-flex">
-                      <input type="text" name="searchbox" id="searchbox" class="filterinput form-control sticky-top" placeholder="search here">
+                      <input type="text" name="searchbox" id="searchbox" class="filterinput form-control sticky-top" placeholder="search doctors">
                     </form>
                   </div>
                 </div>
@@ -70,7 +70,7 @@ if($_SESSION["type"] != 'patient'){
                               <div class="card-body">
                               <h4 class="card-title">' . $row['FirstName']." ". $row['SureName']  .'</h4>
                                 <p class="card-text"><h6>' . $row['Specialization']  . '</h6><h6>'  .$row['Address'] .' </h6></p>
-                                <a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a>
+                                <div class="text-center"><a href="doctor_profile_view.php?id=' . $row['user_id'] . '" class="btn btn-primary">View Profile</a></div>
                               </div>
                               </div>
                             </div>
