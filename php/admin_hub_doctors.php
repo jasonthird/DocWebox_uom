@@ -84,6 +84,7 @@
           $id=$_GET['id'];
           $query = "DELETE FROM users WHERE id='$id'";
           mysqli_query($conn,$query);
+          echo '<script>window.location.href = "admin_hub_doctors.php";</script>';
 
         } 
         mysqli_close($conn);
