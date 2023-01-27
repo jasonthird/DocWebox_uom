@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2023 at 07:25 PM
+-- Generation Time: Jan 27, 2023 at 07:31 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -44,7 +44,10 @@ CREATE TABLE `appointments` (
 INSERT INTO `appointments` (`id`, `doc_id`, `patient_id`, `date`, `time`) VALUES
 (7, 7, 3, '2023-02-02', '14:00:00'),
 (8, 9, 5, '2023-02-12', '19:00:00'),
-(10, 4, 5, '2023-02-05', '08:59:00');
+(10, 4, 5, '2023-02-05', '08:59:00'),
+(11, 14, 3, '2023-02-23', '03:03:00'),
+(12, 16, 10, '2027-03-25', '13:09:00'),
+(13, 9, 10, '2023-03-15', '14:02:00');
 
 -- --------------------------------------------------------
 
@@ -159,7 +162,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `profile`
