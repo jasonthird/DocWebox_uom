@@ -148,7 +148,7 @@ if($_SESSION["type"] != 'doctor'){
                 }else{
                     $bio = $row['bio'];
                 }
-                $updateQuery = "UPDATE profile SET FirstName='$firstName', SureName='$lastName', email='$email', PhoneNumber='$phone',bio='$bio', Address='$address', Specialization='$specialization' WHERE user_id=$id";
+                $updateQuery = "UPDATE profile SET bio='$bio', FirstName='$firstName', SureName='$lastName', email='$email', PhoneNumber='$phone', Address='$address', Specialization='$specialization' WHERE user_id=$id";
                 $result2 = mysqli_query($conn, $updateQuery);
                 if($result2){
                     echo '<script>alert("Profile updated successfully")</script>';
