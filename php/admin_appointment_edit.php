@@ -52,23 +52,21 @@
     <?php
         
         include 'connect.php';
-        // delete appointments
     if (isset($_GET['id'])) {
         $app = $_GET['id'];
-
-        $query = "SELECT p1.FirstName as n1, p1.SureName as s1, p2.FirstName as n2, p2.SureName as s2,time, date, a.id FROM (appointments a join profile p2 on p2.user_id=patient_id) join profile p1 on p1.user_id=doc_id where a.id=$app";
+        #get the appointment from id
+        $query = "SELECT * FROM appointments WHERE id=$app";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) > 0) {
             while ($row = $result->fetch_assoc()) {
                 #keep the appointment once 
+
                 echo '<div class="col-sm-3 doctors">
                         <div class="blog-item m-1">
                             <div class="card">
                                 <div class="card-body">
                                 <h3 class="card-title">Edit Appointment</h3>
-                                <h5 class="card-text">Doctor: ' . $row['n1'] . " " . $row['s1'] . '</h5>
-                                <h5 class="card-text">Patient: ' . $row['n2'] . " " . $row['s2'] . '</h5>
                                 <form method="POST" action="">
                                     <div class="form-floating m-3">
                                         <input type="date" name="date" value="' . $row['date'] . '" class="form-control" id="floatingInput">
