@@ -49,9 +49,6 @@ if($_SESSION["type"] != 'doctor'){
             </div>
           </div>
         </nav>';
-        
-            
-              mysqli_close($conn);
     
            ?> 
             
@@ -66,34 +63,38 @@ if($_SESSION["type"] != 'doctor'){
         $result = mysqli_query($conn, $query);
         #check if user exists
         if (mysqli_num_rows($result) > 0) {
-            
-            while($row = $result->fetch_assoc()){ 
-                #keep the appointment once 
+
+            while($row = $result->fetch_assoc()){
+                #keep the appointment once
                 echo '<div class="container-float">
                 <div class="row">
                     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto ">
                     <div class="card border-0 shadow rounded-3 m-5">
                         <div class="card-body text-center p-3 m-1 ">
                             <h3 class="card-title">Edit Profile</h3>
-                            <form>
+                            <form method="post" action="">
                             <div class="form-floating m-3">
-                                <input type="text" class="form-control" id="floatingInput">
-                                <label for="floatingInput">' . $row['userName'] . '</label>
+                                <input type="text" name="firstname" class="form-control" id="floatingInput">
+                                <label for="floatingInput">' . $row['FirstName'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="email" class="form-control" id="floatingInput">
+                                <input type="text" name="surename" class="form-control" id="floatingInput">
+                                <label for="floatingInput">' . $row['SureName'] . '</label>
+                            </div>
+                            <div class="form-floating m-3">
+                                <input type="email" name="email" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['email'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="text" class="form-control" id="floatingInput">
+                                <input type="text" name="phone" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['PhoneNumber'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="text" class="form-control" id="floatingInput">
+                                <input type="text" name="spesialization" class="form-control" id="floatingInput">
                                 <label for="floatingInput">' . $row['Specialization'] . '</label>
                             </div>
                             <div class="form-floating m-3">
-                                <select class="form-control" >
+                                <select name="address" class="form-control" >
                                     <option selected>' . $row['Address'] . '</option>
                                     <option>Thessaloniki</option>
                                     <option>Athens</option>
@@ -102,15 +103,65 @@ if($_SESSION["type"] != 'doctor'){
                                 </select>
                             </div>
                             <div class="form-floating m-3">
-                                <input type="textarea" class="form-control" id="floatingInput">
-                                <label for="floatingInput">bio</label>
+                                <input type="textarea" name="bio" class="form-control" id="floatingInput">
+                                <label for="floatingInput">' . $row['bio'] .'</label>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-primary" type="button">Save Changes</button>
+                                <button class="btn btn-primary" name="save" type="submit">Save Changes</button>
                             </div>
                     </div>
                     </div>
             </div>';
+            }
+            $query = "SELECT * FROM profile where user_id=$id";
+            $result = mysqli_query($conn, $query);
+            $row = $result->fetch_assoc();
+            if (isset($_POST['save'])){
+                $id = $_SESSION["id"];
+                if (isset($_POST['firstname'])&& $_POST['firstname'] != ""){
+                    $firstName = $_POST['firstname'];
+                }else{
+                    $firstName = $row['FirstName'];
+                }
+                if (isset($_POST['surename'])&& $_POST['surename'] != ""){
+                    $lastName = $_POST['surename'];
+                }else{
+                    $lastName = $row['SureName'];
+                }
+                if (isset($_POST['email'])&& $_POST['email'] != ""){
+                    $email = $_POST['email'];
+                }else{
+                    $email = $row['email'];
+                }
+                if (isset($_POST['phone'])&& $_POST['phone'] != ""){
+                    $phone = $_POST['phone'];
+                }else{
+                    $phone = $row['PhoneNumber'];
+                }
+                if (isset($_POST['address'])&& $_POST['address'] != ""){
+                    $address = $_POST['address'];
+                }else{
+                    $address = $row['Address'];
+                }
+                if (isset($_POST['spesialization'])&& $_POST['spesialization'] != ""){
+                    $specialization = $_POST['spesialization'];
+                }else{
+                    $specialization = $row['Specialization'];
+                }
+                if (isset($_POST['bio'])&& $_POST['bio'] != ""){
+                    $bio = $_POST['bio'];
+                }else{
+                    $bio = $row['bio'];
+                }
+                $updateQuery = "UPDATE profile SET FirstName='$firstName', SureName='$lastName', email='$email', PhoneNumber='$phone',bio='$bio', Address='$address', Specialization='$specialization' WHERE user_id=$id";
+                $result2 = mysqli_query($conn, $updateQuery);
+                if($result2){
+                    echo '<script>alert("Profile updated successfully")</script>';
+
+                    echo '<script>window.location.href = "doctor_profile_edit.php";</script>';
+                }else{
+                    echo '<script>alert("Profile not updated")</script>';
+                }
             }
               mysqli_close($conn);
         }
